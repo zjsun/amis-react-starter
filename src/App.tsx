@@ -4,7 +4,8 @@ import 'amis/lib/themes/default.css';
 // 或 import 'amis/lib/themes/cxd.css';
 // 或 import 'amis/lib/themes/dark.css';
 
-import 'font-awesome/css/font-awesome.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/css/v4-shims.css';
 
 import axios from 'axios';
 import copy from 'copy-to-clipboard';
@@ -107,16 +108,21 @@ class AMISComponent extends React.Component<any, any> {
         body: {
           type: 'form',
           api: '/api/form',
-          controls: [
+          body: [
             {
-              type: 'text',
+              type: 'input-text',
               name: 'name',
               label: '姓名：'
             },
             {
               name: 'email',
-              type: 'email',
+              type: 'input-email',
               label: '邮箱：'
+            },
+            {
+              type: 'editor',
+              name: 'editor',
+              label: '编辑器'
             }
           ]
         }
